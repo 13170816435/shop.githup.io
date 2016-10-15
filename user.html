@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		<style>
+		          .user{
+		          	width:300px;
+		          	height:400px;
+		          	background:pink;
+		          	
+		          	
+		          }
+		          .user h2{
+		          	  text-align: center;
+		          	  color:cornflowerblue;
+		          }
+		          .user span{
+		          	   
+		          	     color:red;
+		          	     font-size: 2rem;
+		          	     font-weight: bold;
+		          	     /*flex-wrap: wrap; */
+		          	     white-space: pre-wrap;
+		          }
+		</style>
+	</head>
+	<body>
+	
+	     <div class="user">
+	     	   <h2>个人信息</h2>
+	     </div>
+	
+		 <script src="js/jquery-1.11.0.js"></script>
+		<script>
+			var user = sessionStorage.getItem('username')
+				$.ajax({
+					type:"get",
+					dataType:'JSONP',
+					data:{
+						  userID:user,
+					},
+					url:"http://datainfo.duapp.com/shopdata/getuser.php",
+					success:function(data){
+						console.log(data)
+						
+						$('.user').append("<div><span>userId:"+data[0].userID+"</span><br/><span>sex:null</span><br><span>"+data[0].userimg_url+"</span> </div>")
+					},
+					error:function(XMLHttpRequest, textStatus, errors){
+						console.log("error")
+					}
+					
+				});
+		</script>
+		
+	</body>
+</html>

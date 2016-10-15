@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		 <link rel="stylesheet" href="iconfont/demo.css">
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+		<link rel="stylesheet" href="icon/demo.css" />
+		<link rel="stylesheet" href="icon/iconfont.css" />
+		<style>
+			html,body{
+				width:100%;
+				height:100%;
+				padding:0;
+				margin:0;
+				border:0;
+				position:relative;
+			
+			}
+			header{
+				width:100%;
+				height:45px;
+				background:#a90506;
+				position:fixed;
+				top:0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+					
+			}
+			header h2{
+				color:white;
+				font-size:2rem;
+			}
+			header button{
+				position:absolute;
+				right:15px;
+				width:80px;
+				height:40px;
+				color:white;
+				border-radius:10px;
+				background:#a90506;
+				border-color:black;	
+			}
+			header .icon{
+				position: absolute;
+				left:20px;
+				color:white;
+			}
+			article{
+				width:100%;
+				background:#f3f4f6;
+				position: absolute;
+				top:45px;
+				bottom:50px;
+				display: flex;
+				flex-flow: column nowrap;
+				/*justify-content: center;*/
+				align-items: center;
+			}
+			article .things{
+				 height:50%;
+				 background:red;
+				 width:100%;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<header>
+			<span class="iconfont icon" style="font-size:40px;">&#xe619;</span>
+			<h2>商品资料</h2>
+			<button><span class="iconfont" style="font-size: 30px;">&#xe61b;</span></button>
+		</header>
+		<article>
+			 <div class="things"></div>
+			 
+		
+		</article>
+	</body>
+</html>

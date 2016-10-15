@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" href="icon/iconfont.css" />
+		<style>
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				padding: 0;
+				margin: 0;
+				border: 0;
+				position: relative;
+			}
+			
+			header {
+				width: 100%;
+				height: 45px;
+				background: #a90506;
+				position: fixed;
+				top: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			header h2 {
+				color: white;
+				font-size: 1.8rem;
+			}
+			
+			article{
+				width: 100%;
+				display: flex;
+				flex-flow: column nowrap;
+				align-items: center;
+				justify-content: center;
+				background: #f3eff0;
+				position: absolute;
+				top: 45px;
+				
+			}
+			section{
+				width: 100%;
+				display: flex;
+				flex-flow: column nowrap;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				top: 45px;
+			}
+			article .search{
+				width: 100%;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				background: black;
+			}
+			
+			article .search input{
+				width: 80%;
+				padding-left: 60px;
+				height: 40px;
+				border-color: white;
+				border-radius: 15px;
+			}
+			
+			.swiper-container {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.swiper-slide {
+				text-align: center;
+				font-size: 18px;
+				background: #fff;
+				/* Center slide text vertically */
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+			}
+			
+			.swiper-wrapper .swiper-slide img {
+				width: 100%;
+				height: 100px;
+			}
+			
+			article .allThings {
+				width: 100%;
+				margin-top: 20px;
+				background: white;
+			}
+			
+			
+			
+			article .things {
+				margin-top: 10px;
+				width: 100%;
+				height:120px;
+				display: flex;
+				padding-left: 20px;
+				flex-flow: row nowrap;
+			}
+			
+			article .things .goods img {
+				width: 100px;
+				height: 100px;
+			}
+			
+			article .things .price {
+				width: 90%;
+				padding-left: 20px;
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: center;
+				white-space: pre-wrap;
+			}
+			
+			article .things .price p {
+				display: flex;
+				align-items: center;
+				padding-left: 20px;
+			}
+			
+			article .things .price span:nth-of-type(1) {
+				font-size: 0.6rem;
+			}
+			
+			section .newThings {
+				width: 100%;
+				margin-top: 20px;
+				background: white;
+			}
+			section .things {
+				margin-top: 10px;
+				width: 100%;
+				height:120px;
+				display: flex;
+				padding-left: 20px;
+				flex-flow: row nowrap;
+			}
+			
+			section .things .goods img {
+				width: 100px;
+				height: 100px;
+			}
+			
+			section .things .price {
+				width: 90%;
+				padding-left: 20px;
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: center;
+				white-space: pre-wrap;
+			}
+			
+			section .things .price p {
+				display: flex;
+				align-items: center;
+				padding-left: 20px;
+			}
+			
+			section .things .price span:nth-of-type(1) {
+				font-size: 0.6rem;
+			}
+			
+			footer {
+				width: 100%;
+				height: 50px;
+				position: fixed;
+				bottom: 0px;
+				display: flex;
+				align-items: center;
+				background: #484850;
+			}
+			
+			footer .foot {
+				width: 100%;
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			footer .icon {
+				color: white;
+				display: flex;
+				font-size: 1rem;
+				flex-flow: column nowrap;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			footer .icon span:nth-of-type(1) {
+				font-size: 30px;
+			}
+			.active:before{
+				content: '';
+				width:40px;
+				height:2px;
+				margin-top:5px;
+				background:red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h2>zxiu&nbsp;&nbsp;走秀网</h2>
+		</header>
+		<article>
+			<div class="search">
+				<span class="iconfont find" style="color:black;font-size:2rem;position:relative;left:50px;" >&#xe615;</span>
+				<input type="search" placeholder="请输入搜索内容" class="name"/>
+			</div>
+
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="img/lunbo1.jpg" alt="" /></div>
+					<div class="swiper-slide"><img src="img/lunbo2.jpg" alt="" /></div>
+					<div class="swiper-slide"><img src="img/lunbo3.jpg" alt="" /></div>
+					<div class="swiper-slide"><img src="img/lunbo3.jpg" alt="" /></div>
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+
+				<!-- 如果需要导航按钮 -->
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+
+			<div class="allThings">
+
+			</div>
+		</article>
+		
+		<section>
+			     <div class="newThings">
+
+			     </div>
+		</section>
+		<footer>
+			<div class="foot">
+				<div class="icon first  active">
+					<span class="iconfont">&#xe604;</span>
+					<span>首页</span>
+				</div>
+
+				<div class="icon clas">
+					<span class="iconfont">&#xe600;</span>
+					<span>分类</span>
+				</div>
+
+				<div class="icon cart">
+					<span class="iconfont">&#xe607;</span>
+					<span>购物车</span>
+				</div>
+
+				<div class="icon my">
+					<span class="iconfont">&#xe62d;</span>
+					<span>我的秀</span>
+				</div>
+				<div class="icon more">
+					<span class="iconfont">&#xf0013;</span>
+					<span>更多</span>
+				</div>
+			</div>
+		</footer>
+		<script type="text/html" id="items">
+			<div class='things' style="border-bottom:1px solid gray;">
+				<div class="goods" goodsId='{{goodsId}}'>
+					<a href="javascript:;" class="imgs" ><img src="{{src}}" alt="" /></a>
+				</div>
+				<div class="price">
+					<span class="name">{{name}}</span>
+					<span style="padding-top:20px;color:red;font-size:1.5rem" class="item">￥0<strong style="padding-left:20px;color:gray;text-decoration: line-through;">￥{{price}}</strong></span>
+					<p style="margin-top:10px;"><span>{{discount}}折</span>
+						<a href="javascript:;" class="addCart"><img src="img/cart.jpg" alt="" style="width:80px;padding-left:40px;" /></a>
+					</p>
+					<!--注意加上javascript 不然你每次点击时 就会自动刷新-->
+				</div>
+			</div>
+		</script>
+		
+		
+		<script type="text/html" id="finds">
+			<div class='things' style="border-bottom:1px solid gray;">
+				<div class="goods" goodsId='{{goodsId2}}'>
+					<a href="javascript:;" class="imgs" ><img src="{{src}}" alt="" /></a>
+				</div>
+				<div class="price">
+					<span class="name">{{name}}</span>
+					<span style="padding-top:20px;color:red;font-size:1.5rem" class="item">￥0<strong style="padding-left:20px;color:gray;">￥{{price}}</strong></span>
+					<p style="margin-top:10px;"><span>{{discount}}折</span>
+						<a href="javascript:;" class="addCart"><img src="img/cart.jpg" alt="" style="width:80px;padding-left:40px;" /></a>
+					</p>
+					<!--注意加上javascript 不然你每次点击时 就会自动刷新-->
+				</div>
+			</div>
+		</script>
+		<script src="js/swiper.min.js"></script>
+
+		<script>
+			var swiper = new Swiper('.swiper-container', {
+				autoplay: 3000,
+				pagination: '.swiper-pagination',
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+
+			});
+		</script>
+
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$('.icon').on('click',function() {
+				$('.icon').removeClass('active');
+				$(this).addClass('active')
+			})
+			$('.more').on('click', function() {
+				location.href = "more.html"
+			})
+
+			$('.my').on('click', function() {
+				location.href = "MyIndex.html"
+			})
+			$('.first').on('click', function() {
+				location.href = "zxiu.html"
+			})
+			$('.clas').on('click', function() {
+				location.href = "class.html"
+			})
+			$('.cart').on('click', function() {
+				var user = sessionStorage.getItem('username') //获取登录的用户名
+			   $.ajax({
+				type: "get",
+				dataType: "JSONP",
+				url: 'http://datainfo.duapp.com/shopdata/getCar.php',
+				data: {
+					userID:user
+				},
+				success: function(data) { // data为0
+					if(data===0){
+						location.href = "cart.html";
+					}
+					else{
+						location.href = "cart2.html";
+					}
+					 
+					
+				}, //如果你这里不加逗号的话 它会报button 按钮里的showData里的方法没定义
+				error: function(XMLHttpRequest, textStatus, errors) {
+					console.log("error");
+					
+					
+				}
+			})
+				 
+				
+				
+			})
+		</script>
+		<script>
+			var baseURl = "http://datainfo.duapp.com/shopdata";
+			var tmpUrl = "/getGoods.php"; //注意 ‘/’必须加上去
+            var user=sessionStorage.getItem("user")
+			$.ajax({
+				type: "get",
+				dataType: 'JSONP', //注意它是jsonp格式还是json格式  是json格式的话 就不要写这句
+				url: baseURl + tmpUrl,
+				success: function(data) {
+					console.log(data[0])
+					for(var i = 0; i < data.length; i++) {
+//						console.log(data[i].goodsID);
+						var tmpStr = createLis(data[i][3], data[i].goodsName, data[i].discount, data[i].price, data[i].goodsID);
+//						console.log(tmpStr);
+						$('.allThings').append(tmpStr);
+					}
+
+				}, //如果你这里不加逗号的话 它会报button 按钮里的showData里的方法没定义
+				error: function(XMLHttpRequest, textStatus, errors) {
+					console.log("error");
+				}
+			})
+
+			function createLis(src, name, discount, price, goodsId) {
+//				console.log(goodsId);
+				var LiHtml = $("#items").html();
+				var newLi = LiHtml.replace('{{src}}', src).replace('{{name}}', name).replace("{{goodsId}}", goodsId)
+					.replace('{{discount}}', discount).replace('{{price}}', price)
+				return newLi
+			}
+			
+			
+		</script>
+		<script>
+			$('.allThings').on('click', '.imgs', function() {
+				//console.log("这个ID"+$(this).parent().attr('goodsid'))
+				$(this).attr('href', 'information.html?' + $(this).parent().attr('goodsid'))
+			})
+			$('.newThings').on('click', '.imgs', function() {
+				//console.log("这个ID"+$(this).parent().attr('goodsid'))
+				$(this).attr('href', 'information2.html?' + $(this).parent().attr('goodsid'))
+			})
+			
+//			var str = location.search //str的值为: ?xxx  就是传过来商品的ID(goosid)
+//			var userId = str.substring(1, str.length) //得到?后面的值
+//		     sessionStorage.setItem('user',userId)
+		     
+		     
+		      var userId=sessionStorage.getItem('username')
+		     
+			$('.allThings').on('click', '.addCart', function() {
+				goodsId = $(this).parent().parent().prev().attr('goodsId');
+				console.log(goodsId);
+				
+				$.ajax({
+					type: "POST",
+					url: 'http://datainfo.duapp.com/shopdata/updatecar.php',
+					data: {
+						userID: userId,
+						goodsID: goodsId
+					},
+					success: function(data) {
+						console.log(data);
+						location.href="cart2.html";
+						
+					},
+					error: function(XMLHttpRequest, textStatus, errors) {
+						console.log("error");
+					}
+				})
+
+			})
+			
+			$('.newThings').on('click', '.addCart', function() {
+				goodsId = $(this).parent().parent().prev().attr('goodsId');
+				console.log(goodsId);
+				
+				$.ajax({
+					type: "POST",
+					url: 'http://datainfo.duapp.com/shopdata/updatecar.php',
+					data: {
+						userID: userId,
+						goodsID: goodsId
+					},
+					success: function(data) {
+						console.log(data);
+						location.href="cart2.html";
+						
+					},
+					error: function(XMLHttpRequest, textStatus, errors) {
+						console.log("error");
+						
+					}
+				})
+
+			})
+			//搜索商品
+			$('.find').on('click', function() {
+				var name=$('.name').val()
+			   var newName=encodeURI(name);
+			   sessionStorage.setItem('newName',newName);
+			   var article=$('article')
+				$(article).remove()
+				$.ajax({
+					type: 'get',
+					url:'http://datainfo.duapp.com/shopdata/selectGoodes.php',
+					dataType: 'JSONP',
+					data:{
+	                        selectText:newName,
+					},
+					success: function(data) {
+						console.log(data)
+						for(var i = 0; i < data.length; i++) {
+
+						var tmpStr = createNewDiv(data[i][3], data[i].goodsName, data[i].discount, data[i].price, data[i].goodsID);
+						$('.newThings').append(tmpStr);
+					}
+					},
+					error: function() {
+						console.log(error)
+					}
+				})
+			})
+			
+			function createNewDiv(src, name, discount, price, goodsId) {
+//				console.log(goodsId);
+				var LiHtml = $("#finds").html();
+				var newLi = LiHtml.replace('{{src}}', src).replace('{{name}}', name).replace("{{goodsId2}}", goodsId)
+					.replace('{{discount}}', discount).replace('{{price}}', price)
+				return newLi
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" href="icon/iconfont.css" />
+		<style>
+			html,
+			body {
+				/*如果这里把ul也设置进去  就不会出现滚动效果*/
+				width: 100%;
+				height: 100%;
+				padding: 0;
+				margin: 0;
+				border: 0;
+				position: relative;
+			}
+			
+			header {
+				width: 100%;
+				height: 45px;
+				background: #a90506;
+				position: fixed;
+				top: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			header h2 {
+				color: white;
+				font-size: 1.8rem;
+			}
+			
+			article {
+				position: absolute;
+				top: 45px;
+				bottom: 50px;
+				width: 100%;
+				background-color: #888888;
+				overflow: hidden;
+			}
+			
+			article .search {
+				width: 100%;
+				height: 50px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: black;
+				/*overflow: auto;*/
+			}
+			
+			article .search input {
+				width: 80%;
+				padding-left: 60px;
+				height: 40px;
+				border-color: white;
+				border-radius: 15px;
+			}
+			
+			footer {
+				width: 100%;
+				height: 50px;
+				position: fixed;
+				bottom: 0px;
+				display: flex;
+				align-items: center;
+				background: #484850;
+			}
+			
+			footer .foot {
+				width: 100%;
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			footer .icon {
+				color: white;
+				display: flex;
+				font-size: 1rem;
+				flex-flow: column nowrap;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			footer .icon span:nth-of-type(1) {
+				font-size: 30px;
+			}
+			
+			#wrapper {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background-color: green;
+			}
+			
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				height: 60px;
+				width: 100%;
+				line-height: 60px;
+				border-bottom: 1px dotted red;
+			}
+			
+			.active:before {
+				content: '';
+				width: 40px;
+				height: 2px;
+				margin-top: 5px;
+				background: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h2>zxiu&nbsp;&nbsp;走秀网</h2>
+		</header>
+		<article>
+			<div class="search">
+				<span class="iconfont find" style="color:black;font-size:2rem;position:relative;left:50px;" >&#xe615;</span>
+				<input type="search" placeholder="请输入搜索内容" class="name"/>
+			</div>
+
+			<div id="wrapper">
+				<ul class="allclass">
+					<li>全部<span class="iconfont">&#xe870;</span></li>
+				</ul>
+			</div>
+		</article>
+		<footer>
+			<div class="foot">
+				<div class="icon">
+					<span class="iconfont first">&#xe604;</span>
+					<span>首页</span>
+				</div>
+
+				<div class="icon clas active">
+					<span class="iconfont">&#xe600;</span>
+					<span>分类</span>
+				</div>
+
+				<div class="icon cart">
+					<span class="iconfont">&#xe607;</span>
+					<span>购物车</span>
+				</div>
+
+				<div class="icon my">
+					<span class="iconfont">&#xe62d;</span>
+					<span>我的秀</span>
+				</div>
+				<div class="icon more">
+					<span class="iconfont">&#xf0013;</span>
+					<span>更多</span>
+				</div>
+			</div>
+		</footer>
+		<script src="js/jquery-1.12.1.js"></script>
+		<!--<script type="text/html" id="items">
+			<li class='types' style="width:100%;">
+				<div style="display:flex;justify-content:space-around;width:100%;margin-top:15px;">{{class}}<span class="iconfont">&#xe870;</span></div>
+
+			</li>
+		</script>-->
+
+		<script>
+			$('.icon').click(function() {
+				$('.icon').removeClass('active');
+				$(this).addClass('active')
+			})
+			$('.first').on('click', function() {
+				location.href = "zxiu.html"
+			})
+			$('.clas').on('click', function() {
+				location.href = "class.html"
+			})
+			 $('.my').on('click', function() {
+				location.href = "MyIndex.html"
+			})
+			$('.cart').on('click', function() {
+				location.href = "cart2.html"
+			})
+		</script>
+		<script>
+			$.ajax({
+				type: "get",
+				//			 	  	  dataType:'JSONP',  //这一句也必须写 要么写jsonp 要么是json 是json的话就不要写这一句
+				url: "http://datainfo.duapp.com/shopdata/getclass.php",
+				success: function(data) {
+
+					var dataArr = JSON.parse(data);
+					console.log(dataArr);
+					for(var i = 0; i < dataArr.length; i++) {
+						var str = "";
+						str += '<li>' + dataArr[i].className + '<span class="iconfont" style="padding-right:15px;">' + '&#xe870;' + '</span>' + '</li>'
+						$('.allclass').append(str)
+					}
+
+				}, //如果你这里不加逗号的话 它会报button 按钮里的showData里的方法没定义
+				error: function(XMLHttpRequest, textStatus, errors) {
+					console.log("error");
+				}
+			})
+
+			//搜索商品
+			
+			$('.find').on('click', function() {
+				var name=$('.name').val()
+			   var newName=encodeURI(name)
+				
+				$.ajax({
+					type: 'get',
+					url:'http://datainfo.duapp.com/shopdata/selectGoodes.php',
+					dataType: 'JSONP',
+					data:{
+	                        selectText:newName,
+					},
+					success: function(data) {
+						console.log(data)
+					},
+					error: function() {
+						console.log(error)
+					}
+				})
+			})
+		</script>
+
+		<script src="js/iscroll.js"></script>
+		<script src="js/iscroll-probe.js"></script>
+		<script type="text/javascript">
+			var myScroll = new IScroll('#wrapper', {
+				mouseWheel: true,
+				scrollbars: true
+
+			});
+		</script>
+
+	</body>
+
+</html>

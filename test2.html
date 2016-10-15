@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+		<link rel="stylesheet" href="icon/iconfont.css" />
+		<style>
+			html,
+			body,
+			{                       /*如果这里把ul也设置进去  就不会出现滚动效果*/
+				width: 100%;
+				height: 100%;
+				padding: 0;
+				margin: 0;
+				border: 0;
+			
+			}
+			
+			header {
+				width: 100%;
+				height: 45px;
+				background: #a90506;
+				position: fixed;
+				top: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			header h2 {
+				color: white;
+				font-size: 1.8rem;
+			}
+		
+			article {
+				position: absolute;
+				top: 45px;
+				bottom: 50px;
+				width: 100%;
+				background-color: #888888;
+				overflow: hidden;
+			}
+			
+			footer {
+				width: 100%;
+				height: 50px;
+				position: fixed;
+				bottom: 0px;
+				display: flex;
+				align-items: center;
+				background: #484850;
+			}
+			
+			footer .foot {
+				width: 100%;
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			footer .icon {
+				color: white;
+				display: flex;
+				font-size: 1rem;
+				flex-flow: column nowrap;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			footer .icon span:nth-of-type(1) {
+				font-size: 30px;
+			}
+			
+			#wrapper{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background-color: green;
+			}
+			ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				height: 60px;
+				width: 100%;
+				border-bottom: 1px dotted red;
+			}
+		</style>
+	</head>
+
+	<body >
+		<header>
+			<h2>zxiu&nbsp;&nbsp;走秀网</h2>
+		</header>
+		<article>
+			<div id="wrapper">
+				<ul>
+					<li class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">111111</li>
+					<li  class="item">这是最后一个</li>
+				</ul>
+			</div>
+		</article>
+		<footer>
+			<div class="foot">
+				<div class="icon">
+					<span class="iconfont first">&#xe604;</span>
+					<span>首页</span>
+				</div>
+
+				<div class="icon clas">
+					<span class="iconfont">&#xe600;</span>
+					<span>分类</span>
+				</div>
+
+				<div class="icon cart">
+					<span class="iconfont">&#xe607;</span>
+					<span>购物车</span>
+				</div>
+
+				<div class="icon">
+					<span class="iconfont">&#xe62d;</span>
+					<span>我的秀</span>
+				</div>
+				<div class="icon more">
+					<span class="iconfont">&#xf0013;</span>
+					<span>更多</span>
+				</div>
+			</div>
+		</footer>
+
+		<script src="js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="js/iscroll.js" ></script>
+		<script type="text/javascript" src="js/iscroll-probe.js" ></script>
+		
+		<script type="text/javascript">
+		 
+		  	 var myIscroll = new IScroll('#wrapper',{
+				mouseWheel: true,
+    			scrollbars: true,
+//				mouseWheelSpeed:100,
+				tap:true,
+				click:true,
+				scrollbars:".iScrollHorizontalScrollbar",
+				
+			})
+		  
+			
+		</script>
+
+	</body>
+
+</html>

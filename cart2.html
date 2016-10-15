@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>购物车</title>
+		<link rel="stylesheet" href="icon/iconfont.css" />
+		<style>
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				padding: 0;
+				margin: 0;
+				border: 0;
+				position: relative;
+			}
+			
+			header {
+				width: 100%;
+				height: 45px;
+				background: #a90506;
+				position: fixed;
+				top: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			header h2 {
+				color: white;
+			}
+			
+			header button {
+				position: absolute;
+				right: 15px;
+				width: 70px;
+				height: 35px;
+				color: white;
+				border: 2px solid #a30b3a;
+				border-radius: 10px;
+				background: #a90506;
+			}
+			
+			header span {
+				position: absolute;
+				left: 20px;
+				color: white;
+			}
+			
+			article {
+				width: 100%;
+				position: absolute;
+				top: 45px;
+				bottom: 50px;
+				display: flex;
+				flex-flow: column nowrap;
+				align-items: center;
+				overflow: auto;
+				/*justify-content: center;*/
+			}
+			
+			article button {
+				width: 80%;
+				height: 50px;
+				background: #e53067;
+				color: white;
+				margin-top: 15px;
+				border-radius: 5px;
+				font-size: 1.5rem;
+			}
+			
+			article .total {
+				width: 100%;
+				text-align: center;
+				background: black;
+				color: white;
+				font-size: 20px;
+			}
+			
+			footer {
+				width: 100%;
+				height: 50px;
+				position: fixed;
+				bottom: 0px;
+				display: flex;
+				align-items: center;
+				background: #484850;
+			}
+			
+			footer .foot {
+				width: 100%;
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			footer .icon {
+				color: white;
+				display: flex;
+				flex-flow: column nowrap;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.active:before {
+				content: '';
+				width: 40px;
+				height: 2px;
+				margin-top: 5px;
+				background: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<span class="iconfont" style="font-size:40px;">&#xe602;</span>
+			<h2>购物车</h2>
+			<button>去结算</button>
+		</header>
+		<article>
+			<div class="total">
+				<span>商品数量：<span class="acount"></span> 应付总额(不含运费)：
+				<span>￥199</span>
+				</span>
+			</div>
+			<div class="allthings" style="width:100%;">
+
+			</div>
+		</article>
+		<footer>
+			<div class="foot">
+				<div class="icon first">
+					<span class="iconfont">&#xe604;</span>
+					<span>首页</span>
+				</div>
+
+				<div class="icon clas">
+					<span class="iconfont">&#xe600;</span>
+					<span>分类</span>
+				</div>
+
+				<div class="icon cart active">
+					<span class="iconfont">&#xe607;</span>
+					<span>购物车</span>
+				</div>
+
+				<div class="icon my">
+					<span class="iconfont">&#xe62d;</span>
+					<span>我的秀</span>
+				</div>
+				<div class="icon more">
+					<span class="iconfont">&#xf0013;</span>
+					<span>更多</span>
+				</div>
+			</div>
+		</footer>
+		<script type="text/html" id="items">
+			<div class='things' style="display:flex;width:100%;flex-flow: row nowrap;justify-content: space-around;margin-bottom: 10px;border-bottom: 1px solid gray;position:relative;">
+				<div class="img" style="width:40%;">
+					<img src="{{src}}" alt="" style="width:100%" />
+				</div>
+				<div class="price" style="width:60%;">
+					<span style="font-size:15px;word-wrap: break-word;display:inline-block;width:160px;font-weight: bold;"><span>{{name}}</span><br>
+					<a href="javascript:" class="del" goodsId="{{goodsId}}" style="position:absolute;top:0px;right:0px;height:20px;"><img src="img/del.jpg"></a>
+					</span><br>
+					<span style="color:gray;font-size:20px;line-height: 10px;">{{type}}</span><br>
+					<span style="padding-top:10px;font-size:15px;color:gray">单价:￥{{price}}<strong style="padding-left:20px;color:red;"></strong></span>
+					<p style="margin-top:0px;color:red;">{{discount}}折 <span style="padding-left:20px"></span>
+
+					</p>
+
+					<span style="display: flex;flex-flow: row nowrap;height:26px;align-items: center;margin-top:-10px;font-weight: bold;">数量：
+                    	<button style="width:30px;height:26px;line-height: 26px;margin-top:0px;">-</button><input type="text" value="1"style="width:20px;height:17px;"/>
+                       <button style="width:30px;height:26px;line-height: 26px;margin-top:0px;">+</button></span>
+				</div>
+			</div>
+		</script>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$('.icon').click(function() {
+				$(this).css('border-top', '1px')
+				$(this).css('border-top-color', 'red')
+			})
+			$('.more').on('click', function() {
+				location.href = "more.html"
+			})
+			$('.icon').click(function() {
+				$(this).css('border-top', '1px')
+				$(this).css('border-top-color', 'red')
+			})
+			$('.first').on('click', function() {
+				location.href = "zxiu.html"
+			})
+			$('.clas').on('click', function() {
+				location.href = "class.html"
+			})
+			 $('.my').on('click', function() {
+				location.href = "MyIndex.html"
+			})
+			$('.cart').on('click', function() {
+				location.href = "cart2.html"
+			})
+
+			//			var str = location.search //str的值为: ?xxx  就是传过来商品的ID(goosid)
+			//			var userId = str.substring(1, str.length) //得到?后面的值
+			//			console.log(userId);
+			var user = sessionStorage.getItem('username') //获取登录的用户名
+			$.ajax({
+				type: "get",
+				dataType: "JSONP",
+				url: 'http://datainfo.duapp.com/shopdata/getCar.php',
+				data: {
+					userID:user
+				},
+				success: function(data) { // data为0
+					console.log(data);
+					$(".acount").html(data.length)
+					for(var i = 0; i < data.length; i++) {
+						$('.allthings').append(createLis(data[i][3], data[i].goodsName, data[i].price, data[i].discount, data[i].className, data[i].goodsID))
+					}
+				}, //如果你这里不加逗号的话 它会报button 按钮里的showData里的方法没定义
+				error: function(XMLHttpRequest, textStatus, errors) {
+					console.log("error");
+				}
+			})
+
+			function createLis(src, name, price, discount, className, goodsId) {
+				var LiHtml = $("#items").html();
+				var newLi = LiHtml.replace("{{src}}", src).replace("{{name}}", name)
+					.replace("{{price}}", price).replace("{{discount}}", discount).replace("{{type}}", className)
+					.replace("{{goodsId}}", goodsId)
+				return newLi
+			}
+		</script>
+		<script src="js/delCart.js"></script>
+		
+	</body>
+
+</html>

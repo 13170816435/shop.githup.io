@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		<style>
+		body,html{
+			width:100%;           /*你*/
+			height:100%;
+			border:0px;
+			padding:0;
+			margin:0;
+		}
+			#wrapper {
+				background:yellow;
+				width: 100%;
+				height: 100%;
+				position:relative;
+				/*overflow: auto;*/
+			}
+			#wrapper ul li{
+				height:60px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script src="js/iscroll-probe.js"></script> 
+		<script>
+			//scroll，内容滚动时触发，只有在scroll-probe.js版本中有效，请参考onScroll event。
+//			The scroll event is available on iScroll probe edition only (iscroll-probe.js). 
+//			The probe behavior can be altered through the probeType option. scroll事件在iScroll probe edition版本中有效（仅包含在iscroll-probe.js脚本文件中）。
+//			可以通过改变probeType选项值来改变scroll事件的触发时机。
+		</script>
+		<script src="js/iscroll.js"></script>
+		<div id="wrapper">
+			<ul>
+				<li>111111</li>
+				<li>22222222</li>
+				<li>3333</li>
+				<li>44444444</li>
+				<li>55555</li>
+				<li>666666</li>
+				<li>7777</li>
+				<li>888888</li>
+				<li>99999</li>
+				<li>12332</li>
+				<li>22434.</li>
+				<li>232132</li>
+				<li>232232</li>
+				<li>23242</li>
+				<li>2r22</li>
+				<li>2r222</li>
+				<li>w2223</li>
+				<li>232233</li>
+				<li>2322</li>
+				<li>232323</li>
+
+			</ul>
+		</div>
+		<script>
+			var myScroll = new IScroll('#wrapper', {
+				mouseWheel: true,
+				scrollbars: true,
+				useTransition:true,
+				HWCompositing:true,
+				click:true,
+				tap:function(){
+					alert("niaho")
+				},
+				scrollX:true,
+				fadeScrollbars:true,
+				interactiveScrollbars:true,
+				snap: true,
+				zoom:true,      //为了使用缩放功能，你最好使用iscroll-zoom.js脚本。
+				onScrollEnd : function() { 
+                  alert(this.currPageX);
+				 }
+			});
+			myScroll.on('tap',function(){
+				 alert(this.currPageX);
+			})
+			myScroll.scrollTo(0, -300),
+			myScroll.goToPage(0, 10, 1000); //滑到第10页
+		</script>
+	</body>
+
+</html>

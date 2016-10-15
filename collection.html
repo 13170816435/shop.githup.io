@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" href="icon/iconfont.css" />
+		<style>
+			html,body{
+				width:100%;
+				height:100%;
+				padding:0;
+				margin:0;
+				border:0;
+				position:relative;
+			
+			}
+			header{
+				width:100%;
+				height:45px;
+				background:#a90506;
+				position:fixed;
+				top:0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			header span{
+				position: absolute;
+				left:20px;
+				color:white;
+			}
+			header h2{
+				color:white;
+				font-size: 1.8rem;
+				
+			}
+			article{
+				width:100%;
+				display: flex;
+				flex-flow: column nowrap;
+				align-items: center;
+				justify-content: center;
+				background:#f3eff0;
+				position:absolute;
+				top:45px;
+			}
+			 article .allThings{
+			    	width:100%;
+			    	margin-top:20px;
+			    	background:white;
+			    }
+			 article .things{
+			    	margin-top:10px;
+			    	width:100%;
+			    	display:flex;
+			    	padding-left:20px;
+			    	flex-flow: row nowrap;	
+			    }
+			  article .things .price{
+			     	padding-left:40px;
+			     	 display:flex;
+			     	 flex-flow: column nowrap;
+			     	 justify-content: center;
+			     }
+			 article .things .price p{
+			     	display:flex;
+			     	align-items: center;
+			     	justify-content: space-around;
+			     }
+		     article .things .price span:nth-of-type(1){
+		     	font-size:1.5rem;
+		     }
+	     footer{
+					width:100%;
+					height:50px;
+					position:fixed;
+					bottom:0px;
+					display:flex;
+					align-items: center;
+					background:#484850;
+					
+					
+				}
+			footer .foot{
+				width:100%;
+				display:flex;
+				flex-flow: row nowrap;
+				justify-content: space-around;
+				align-items:center;
+				
+			}
+			footer .icon{
+				color:white;
+				display: flex;
+				font-size:1rem;
+				flex-flow: column nowrap;
+				align-items: center;
+				justify-content: center;
+			}
+			footer .icon span:nth-of-type(1){
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			 <span class="iconfont" style="font-size:40px;">&#xe602;</span>
+			 <h2>我的收藏</h2>
+		</header>
+		<article>
+        <div class="allThings">
+		   <div class='things'>
+		   	   <div class="img">
+		   	   	 <img src="img/shoes.jpg" alt="" />
+		   	   </div>
+		   	   <div class="price">
+		   	   	   <span>ESPRIT 气质V领玫红 <a href=""><img src="img/del.jpg"></a><br>T恤</span>
+		   	   	   <span style="padding-top:20px;font-size:1.5rem">单价<strong style="padding-left:20px;color:red;">￥99</strong></span>
+		   	   	   <p>3.8折 <span style="padding-left:20px">￥499</span><a href=""><img src="img/collection.jpg" alt="" style="padding-left:300px"/></a></p>
+		   	       
+		   	   </div>
+		   </div>	
+		   
+		   <div class='things'>
+		   	   <div class="img">
+		   	   	 <img src="img/bag2.jpg" alt="" />
+		   	   </div>
+		   	   <div class="price">
+		   	   	   <span>CACBM 盖尔斯条纹单 <a href=""><img src="img/del.jpg"></a><br>肩包</span>
+		   	   	   <span style="padding-top:20px;font-size:1.5rem">单价<strong style="padding-left:20px;color:red;">￥99</strong></span>
+		   	   	   <p>4.8折<span style="padding-left:20px">￥499</span><a href=""><img src="img/collection.jpg" alt="" style="padding-left:300px"/></a></p>
+		   	       
+		   	   </div>
+		   </div>
+		   
+		   <div class='things'>
+		   	   <div class="img">
+		   	   	 <img src="img/cuzi.jpg" alt="" />
+		   	   </div>
+		   	   <div class="price">
+		   	   	   <span>CACBM 盖尔斯条纹单 <a href=""><img src="img/del.jpg"></a><br>肩包</span>
+		   	   	   <span style="padding-top:20px;font-size:1.5rem">单价<strong style="padding-left:20px;color:red;">￥99</strong></span>
+		   	   	   <p>4.8折  <span style="padding-left:20px">￥499</span><a href=""><img src="img/collection.jpg" alt="" style="padding-left:300px"/></a></p>
+		   	       
+		   	   </div>
+		   </div>	
+		 </div>
+</article>
+		<footer>
+			  <div class="foot">
+			  	   <div class="icon">
+			  	   	    <span class="iconfont first">&#xe604;</span>
+			  	   	    <span>首页</span>
+			  	   </div>
+			  	   
+			  	   <div class="icon clas ">
+			  	   	    <span class="iconfont">&#xe600;</span>
+			  	   	    <span>分类</span>
+			  	   </div>
+			  	   
+			  	   <div class="icon cart">
+			  	   	    <span class="iconfont">&#xe607;</span>
+			  	   	    <span>购物车</span>
+			  	   </div>
+			  	   
+			  	   <div class="icon">
+			  	   	    <span class="iconfont">&#xe62d;</span>
+			  	   	    <span>我的秀</span>
+			  	   </div>
+			  	   <div class="icon more">
+			  	   	    <span class="iconfont">&#xf0013;</span>
+			  	   	    <span>更多</span>
+			  	   </div>
+			  </div>
+		</footer>
+		 <script src="js/swiper.min.js"></script>
+         <script>
+         var swiper = new Swiper('.swiper-container');
+    </script>
+    <script src="js/jquery-1.12.1.js"></script>
+    <script>
+    	 $('.icon').click(function(){
+        	  	   $(this).css('border-top','1px')
+        	  	   $(this).css('border-top-color','red')
+        	  })
+        	  $('.first').on('click',function(){
+        	  	location.href="zxiu.html"
+        	  })
+        	  $('.clas').on('click',function(){
+        	  	location.href="class.html"
+        	  })
+        	  $('.cart').on('click',function(){
+        	  	location.href="cart2.html"
+        	  })
+    </script>
+	</body>
+</html>

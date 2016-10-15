@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+				type: "get",
+				url: "http://datainfo.duapp.com/shopdata/getCar.php",
+				dataType: "JSONP",
+				data: {
+					userID: "13570816435"
+				},
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(err) {
+					console.log(err);
+				}
+
+			});
+		</script>
+	</body>
+
+</html>

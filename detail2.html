@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="iconfont/demo.css">
+		<link rel="stylesheet" href="iconfont/iconfont.css" />
+		<link rel="stylesheet" href="icon/demo.css" />
+		<link rel="stylesheet" href="icon/iconfont.css" />
+		<style>
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				padding: 0;
+				margin: 0;
+				border: 0;
+				position: relative;
+			}
+			
+			header {
+				width: 100%;
+				height: 45px;
+				background: #a90506;
+				position: fixed;
+				top: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			header h2 {
+				color: white;
+				font-size: 2rem;
+			}
+			
+			header button {
+				position: absolute;
+				right: 15px;
+				width: 80px;
+				height: 40px;
+				color: white;
+				border-radius: 10px;
+				background: #a90506;
+				border-color: black;
+			}
+			
+			header .icon {
+				position: absolute;
+				left: 20px;
+				color: white;
+			}
+			
+			article {
+				width: 100%;
+				background: #f3f4f6;
+				position: absolute;
+				top: 45px;
+				bottom: 50px;
+				display: flex;
+				flex-flow: column nowrap;
+				/*justify-content: center;*/
+				align-items: center;
+			}
+			
+			footer {
+				width: 100%;
+				position: fixed;
+				bottom: 0px;
+				display: flex;
+				flex-flow: column nowrap;
+				align-items: center;
+				background: #484850;
+			}
+			
+			footer .things {
+				height: 50%;
+				background: red;
+				width: 100%;
+			}
+			
+			footer .find {
+				width: 100%;
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-around;
+				align-items: center;
+				background: white;
+			}
+			
+			footer .cicle {
+				width: 30px;
+				height: 30px;
+				border: 2px solid #b5211f;
+				border-radius: 50%;
+				text-align: center;
+				background: #b5211f;
+			}
+			
+			footer .cicle span {
+				text-align: center;
+				line-height: 50px;
+				color: white;
+				font-style: italic;
+				font-size: 1.5rem;
+			}
+			
+			footer .detail {
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			footer .detail p {
+				font-size: 1.5rem;
+				color: #656565;
+				padding-left: 25px;
+			}
+			
+			footer .addCart {
+				width: 100%;
+				height: 50px;
+				background: #a3a3a3;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-top: 15px;
+			}
+			
+			footer .addCart button {
+				width: 80%;
+				background: #a91919;
+				border: none;
+				font-size: 2rem;
+				color: white;
+				border: 2px solid #a91919;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<span class="iconfont icon" style="font-size:40px;">&#xe619;</span>
+			<h2>商品资料</h2>
+			<button><span class="iconfont" style="font-size: 30px;">&#xe61b;</span></button>
+		</header>
+		<article>
+			<div class="things">
+
+			</div>
+
+		</article>
+		<footer class="foot">
+			<div class="find">
+				<div class="detail">
+					<div class="cicle"><span>i</span></div>
+					<p goodsId="{{goodsId}}">
+						<a href="">查看商品详情</a>
+					</p>
+				</div>
+				<span class="iconfont">&#xe870;</span>
+			</div>
+
+			<div class="addCart">
+				<button>添加到购物车</button>
+			</div>
+		</footer>
+		<!--给类名为.thing的div添加的-->
+		<script type="text/html" id="imgs">
+			<div class="img" goodsId='{{goodsId}}' style="width:100%;">
+				<a href="" style="width:100%;"><img src="{{src}}" alt="" style="width:100%;height:250px;" /></a>
+			</div>
+
+			<div class="introduce" style="display:flex;flex-flow: column nowrap;justify-content: center;">
+				<span style="font-size:1.5rem;">{{name}}</span>
+				<span style="color:red;font-size:1.5rem">￥{{price}}</span>
+				<span style="font-size: 1.5rem;">购买人数：209</span>
+			</div>
+		</script>
+		
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script src="js/information.js"></script>
+
+		<script src="js/detail.js"></script>
+		<script>
+			detailCloth2()
+		</script>
+	</body>
+
+</html>
