@@ -90,34 +90,14 @@
 				bottom: 45px;
 			}
 			
-			.chengshan,
-			.waitao {
+			.chengshan,.waitao,.mianfu,.duanwaitao,.weiyi,.fengyi,.dadiku,.pichao,.yangrongsan,.niuzaiku,.xiuxianku{
 				height: 100%;
 				display: flex;
 				flex-flow: column nowrap;
 			}
 			
-			.chengshan div,
-			.waitao div {
-				display: flex;
-				border-bottom: 1px solid red;
-			}
+	
 			
-			.chengshan div span,
-			.waitao div span {
-				width: 200px;
-				display: inline-block;
-				font-weight: bold;
-				color: gray;
-				word-break: break-word;
-				/*要想换行你得 给它 设置好宽度*/
-			}
-			
-			.chengshan img,
-			.waitao img {
-				width: 100px;
-				height: 100px;
-			}
 			
 			footer {
 				width: 100%;
@@ -189,14 +169,16 @@
 
 					</div>
 					<div class="swiper-slide waitao"></div>
-					<div class="swiper-slide">pag3</div>
-					<div class="swiper-slide">pag4</div>
-					<div class="swiper-slide">pag5</div>
-					<div class="swiper-slide">pag6</div>
-					<div class="swiper-slide">pag7</div>
-					<div class="swiper-slide">pag8</div>
-					<div class="swiper-slide">pag9</div>
-					<div class="swiper-slide">pag10</div>
+					<div class="swiper-slide mianfu"></div>
+					<div class="swiper-slide duanwaitao"></div>
+					<div class="swiper-slide weiyi"></div>
+					<div class="swiper-slide txue"></div>
+					<div class="swiper-slide fengyi"></div>
+					<div class="swiper-slide dadiku"></div>
+					<div class="swiper-slide pichao"></div>
+					<div class="swiper-slide yangrongsan"></div>
+					<div class="swiper-slide niuzaiku"></div>
+					<div class="swiper-slide xiuxianku"></div>
 				</div>
 			</div>
 		</article>
@@ -234,7 +216,7 @@
 				$('.icon').removeClass('active');
 				$(this).addClass('active')
 			})
-			$('.more').on('tap', function() {
+			$('.more').on('click', function() {
 				location.href = "more.html"
 			})
 
@@ -273,6 +255,7 @@
 				onSlideChangeStart: function(swiper) {
 
 				},
+				
 
 			})
 
@@ -290,30 +273,51 @@
 				},
 				onSlideChangeEnd: function(swiper) { //alert('事件触发了;');
 
-				}
+			},	
+			
+		})
+			$(function(){
+				var index=sessionStorage.getItem('index');
+				information.slideTo(index, 1000, false);
+				clothName.slideTo(index, 1000, false);
 			})
 
 			var user = sessionStorage.getItem('username')
-
-			$.ajax({
+            var types= sessionStorage.getItem('types')
+			function loads(name,className){
+				  $.ajax({
 				type: 'get',
 				url: 'http://datainfo.duapp.com/shopdata/selectGoodes.php',
 				dataType: 'JSONP',
 				data: {
-					selectText: "衬衫",
+					selectText:name,
 				},
 				success: function(data) {
-					console.log(data)
+					console.log(data.length)
 					for(var i = 0; i < data.length; i++) {
 						//var tmpStr = createNewDiv(data[i][3], data[i].goodsName, data[i].discount, data[i].price, data[i].goodsID);
-						$('.chengshan').append("<div goodsId=" + data[i].goodsID + "> <img src = " + data[i][3] + "  class='sewDetail'/ ><span class='names'> " + data[i].goodsName + "<br/> <span style=color:red;>￥ " + data[i].price + " </span></span><a href='javascript:;'class='addCart' style='position:relative;'><img src='img/cart.jpg' alt='' style='width:50px;height:20px;position:absolute;right:5px;bottom:0px;' /></a></div>");
+						$("."+className).append("<div goodsId=" + data[i].goodsID + "style='display:flex;border-bottom:1px solid red;position:relative;'> <img src = " + data[i][3] + " style='width:100px;height:100px;' class='sawDetail'/ ><span class='names' style='width:200px;display:inline-block;font-weight:bold;color:gray;word-break: break-word;position:relative;top:-45px;'> " + data[i].goodsName + "<br/> <span style=color:red;>￥ " + data[i].price + " </span></span><a href='javascript:;'class='addCart' style='position:relative;'><img src='img/cart.jpg' alt='' style='width:50px;height:20px;position:absolute;right:5px;bottom:10px;' /></a></div>");
+						
 					}
 				},
 				error: function() {
 					console.log(error)
 				}
 			})
-
+			}
+            loads("衬衫",'chengshan')
+            loads("礼服",'waitao')
+            loads("棉服",'mianfu')
+            loads("短外套",'duanwaitao')
+            loads("卫衣",'weiyi')
+            loads("T恤",'txue')
+            loads("风衣",'fengyi')
+            loads("打底裤",'dadiku')
+            loads("皮草",'pichao')
+            loads("羊绒衫",'yangrongsan')
+            loads("牛仔裤",'niuzaiku')
+            loads("休闲裤",'xiuxianku')
+              
 			//				function createNewDiv(src, name, discount, price, goodsId) {
 			////				console.log(goodsId);
 			//				var LiHtml = $("#finds").html();
@@ -345,25 +349,6 @@
 				})
 
 			})
-			$.ajax({
-				type: 'get',
-				url: 'http://datainfo.duapp.com/shopdata/selectGoodes.php',
-				dataType: 'JSONP',
-				data: {
-					selectText: "外套",
-				},
-				success: function(data) {
-					console.log(data)
-					for(var i = 0; i < data.length; i++) {
-						//var tmpStr = createNewDiv(data[i][3], data[i].goodsName, data[i].discount, data[i].price, data[i].goodsID);
-						$('.waitao').append("<div goodsId=" + data[i].goodsID + "> <img src = " + data[i][3] + " / ><span class='names'> " + data[i].goodsName + "<br/> <span style=color:red;>￥ " + data[i].price + " </span></span><a href='javascript:;'class='addCart' style='position:relative;'><img src='img/cart.jpg' alt='' style='width:50px;height:20px;position:absolute;right:5px;bottom:0px;' /></a></div>");
-					}
-				},
-				error: function() {
-					console.log(error)
-				}
-			})
-
 			$('.waitao').on('click', '.addCart', function() {
 				goodsId = $(this).parent().attr('goodsId');
 				var userId = sessionStorage.getItem("username")
@@ -388,7 +373,12 @@
 
 			})
 			
-			$('.chengshan').on('click', '.sewDetail', function() {
+			$('.chengshan').on('click', '.sawDetail', function() {
+				 goodsId = $(this).parent().attr('goodsId');
+				  sessionStorage.setItem('id',goodsId)
+				  location.href='information3.html'
+			})
+			$('.waitao').on('click', '.sawDetail', function() {
 				 goodsId = $(this).parent().attr('goodsId');
 				  sessionStorage.setItem('id',goodsId)
 				  location.href='information3.html'

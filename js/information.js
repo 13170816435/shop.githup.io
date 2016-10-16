@@ -59,6 +59,7 @@ function detailLi2() {
 function detailLi3() {
    
     var indexs=sessionStorage.getItem('id') //得到?后面的值
+    var indexs=parseInt(indexs.substring(0,1))
     var newName=sessionStorage.getItem('types') 
     
 			 	  $.ajax({
@@ -77,7 +78,7 @@ function detailLi3() {
 							         }
                        	    
                          $('.things').html('') //每次点击之前将 这个div里的内容清空
-                       	    // console.log(data[indexs])
+                       	     console.log(data[indexs])
                       $('.things').append(createDiv(data[indexs][3]))
                        },    //如果你这里不加逗号的话 它会报button 按钮里的showData里的方法没定义
                        error:function(XMLHttpRequest,textStatus,error){
