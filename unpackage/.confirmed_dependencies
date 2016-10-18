@@ -1,0 +1,134 @@
+{
+	"more.html": {
+		"resources": [
+			"zxiu.html",
+			"MyIndex.html"
+		],
+		"refer": [
+			"zxiu.html",
+			"MyIndex.html"
+		]
+	},
+	"zxiu.html": {
+		"resources": [
+			"img/lunbo3.jpg",
+			"more.html",
+			"class.html",
+			"img/lunbo2.jpg",
+			"icon/iconfont.css",
+			"js/swiper.min.js",
+			"img/cart.jpg",
+			"img/lunbo1.jpg",
+			"js/jquery-1.12.1.js",
+			"icon/iconfont.woff",
+			"css/swiper.min.css",
+			"iconfont/iconfont.woff",
+			"iconfont/iconfont.css",
+			"cart2.html",
+			"information.html",
+			"information2.html"
+		],
+		"refer": [
+			"more.html",
+			"class.html",
+			"cart2.html",
+			"information.html"
+		]
+	},
+	"class.html": {
+		"resources": [
+			"cart2.html",
+			"class2.html",
+			"zxiu.html"
+		],
+		"refer": [
+			"cart2.html",
+			"class2.html",
+			"zxiu.html"
+		]
+	},
+	"cart2.html": {
+		"resources": [
+			"js/delCart.js",
+			"MyIndex.html",
+			"img/del.jpg",
+			"zxiu.html",
+			"class.html",
+			"more.html"
+		],
+		"refer": [
+			"MyIndex.html",
+			"class.html",
+			"zxiu.html",
+			"more.html"
+		]
+	},
+	"MyIndex.html": {
+		"resources": [
+			"css/easyui.css",
+			"img/xiangce.jpg",
+			"more.html",
+			"js/jquery.easyui.min.js",
+			"img/touxiang.jpg",
+			"js/jquery-1.8.0.min.js",
+			"css/icon.css",
+			"img/photo.jpg",
+			"css/demo.css",
+			"login.html",
+			"class2.html"
+		],
+		"refer": [
+			"more.html",
+			"login.html",
+			"class2.html"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"zxiu.html"
+		],
+		"refer": [
+			"zxiu.html"
+		]
+	},
+	"detail.html": {
+		"resources": [
+			"js/detail.js"
+		],
+		"refer": []
+	},
+	"information.html": {
+		"resources": [
+			"detail.html",
+			"js/information.js",
+			"icon/demo.css",
+			"iconfont/demo.css"
+		],
+		"refer": [
+			"detail.html"
+		]
+	},
+	"information2.html": {
+		"resources": [
+			"js/information.js",
+			"icon/demo.css",
+			"iconfont/demo.css",
+			"detail2.html"
+		],
+		"refer": []
+	},
+	"detail2.html": {
+		"resources": [
+			"js/detail.js"
+		]
+	},
+	"class2.html": {
+		"resources": [
+			"js/jquery-1.11.0.js",
+			"cart2.html"
+		],
+		"refer": [
+			"cart2.html"
+		]
+	}
+}
