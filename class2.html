@@ -9,7 +9,6 @@
 		<link rel="stylesheet" href="iconfont/iconfont.css" />
 		<link rel="stylesheet" href="css/swiper.min.css" />
 		<link rel="stylesheet" href="icon/iconfont.css" />
-		<script src="js/app.js"></script>
 		<style>
 			html,
 			body {
@@ -250,8 +249,7 @@
 
 					var nowActive = swiper.clickedIndex;
 					information.slideTo(nowActive, 200, false);
-					loads(arr[nowActive],arr2[nowActive])
-
+                     loads(arr[nowActive],arr2[nowActive])
 					$(".clothType .swiper-slide").removeClass('active').eq(nowActive).addClass('active')
 				},
 				onSlideChangeStart: function(swiper) {
@@ -272,7 +270,6 @@
 
 					 nowActive = swiper.activeIndex;
 					//Console.log(nowActive);
-					
 					$(".clothType .swiper-slide").removeClass('active').eq(nowActive).addClass('active')
 					clothName.slideTo(nowActive, 200, false);
 					
@@ -305,7 +302,7 @@
 					$("."+className).html("")
 					for(var i = 0; i < data.length; i++) {
 						//var tmpStr = createNewDiv(data[i][3], data[i].goodsName, data[i].discount, data[i].price, data[i].goodsID);
-						$("."+className).append("<div goodsId=" + data[i].goodsID + "style='display:flex;border-bottom:1px solid red;position:relative;'> <img src = " + data[i][3] + " style='width:100px;height:100px;' class='sawDetail'/ ><span class='names' style='width:200px;display:inline-block;font-weight:bold;color:gray;word-break: break-word;position:relative;top:-45px;font-size:0.7rem;'> " + data[i].goodsName + "<br/><span style='color:red;'>￥" + data[i].price + " </span></span><a href='javascript:;'class='addCart' style='position:relative;'><img src='img/cart.jpg' alt='' style='width:50px;height:20px;position:absolute;right:5px;bottom:10px;'/></a></div>");
+						$("."+className).append("<div goodsId=" + data[i].goodsID + "style='display:flex;border-bottom:1px solid red;position:relative;'> <img src = " + data[i][3] + " style='width:100px;height:120px;' class='sawDetail'/ ><span class='names' style='width:200px;display:inline-block;font-weight:bold;color:gray;word-break: break-word;position:relative;top:-45px;font-size:0.8rem;'> " + data[i].goodsName + "<br/> <span style='color:red;display:inline-block;margin-top:5px;'>￥ " + data[i].price + " </span></span><a href='javascript:;'class='addCart' style='position:relative;'><img src='img/cart.jpg' alt='' style='width:50px;height:20px;position:absolute;right:5px;bottom:10px;' /></a></div>");
 						
 					}
 				},
