@@ -258,7 +258,9 @@
 				
 
 			})
-
+              var arr=['衬衫','礼服','棉服','短外套','卫衣','T恤','风衣','打底裤','皮草','羊绒衫','牛仔裤','休闲裤']
+          var arr2=['chengshan','waitao','mianfu','duanwaitao','weiyi','txue','fengyi','dadiku','picao','yangrongsan','niuzaiku','xiuxianku']
+			var nowActive
 			var information = new Swiper('.clothInformation', {
 				onInit: function(swiper) { //Swiper初始化了 
 					//alert(swiper.activeIndex); //提示Swiper的当前索引
@@ -266,13 +268,15 @@
 				onSlideChangeStart: function(swiper) {
 					//alert('事件触发了;');
 
-					var nowActive = swiper.activeIndex;
+					 nowActive = swiper.activeIndex;
 					//Console.log(nowActive);
 					$(".clothType .swiper-slide").removeClass('active').eq(nowActive).addClass('active')
 					clothName.slideTo(nowActive, 200, false);
+					
 				},
-				onSlideChangeEnd: function(swiper) { //alert('事件触发了;');
-
+				onSlideChangeEnd: function(swiper) { 
+					    // alert(nowActive)
+                        loads(arr[nowActive],arr2[nowActive])   
 			},	
 			
 		})
@@ -280,6 +284,7 @@
 				var index=sessionStorage.getItem('index');
 				information.slideTo(index, 1000, false);
 				clothName.slideTo(index, 1000, false);
+				loads(arr[index],arr2[index])
 			})
 
 			var user = sessionStorage.getItem('username')
@@ -294,6 +299,7 @@
 				},
 				success: function(data) {
 					console.log(data.length)
+					$("."+className).html("")
 					for(var i = 0; i < data.length; i++) {
 						//var tmpStr = createNewDiv(data[i][3], data[i].goodsName, data[i].discount, data[i].price, data[i].goodsID);
 						$("."+className).append("<div goodsId=" + data[i].goodsID + "style='display:flex;border-bottom:1px solid red;position:relative;'> <img src = " + data[i][3] + " style='width:100px;height:100px;' class='sawDetail'/ ><span class='names' style='width:200px;display:inline-block;font-weight:bold;color:gray;word-break: break-word;position:relative;top:-45px;'> " + data[i].goodsName + "<br/> <span style=color:red;>￥ " + data[i].price + " </span></span><a href='javascript:;'class='addCart' style='position:relative;'><img src='img/cart.jpg' alt='' style='width:50px;height:20px;position:absolute;right:5px;bottom:10px;' /></a></div>");
@@ -306,17 +312,17 @@
 			})
 			}
             loads("衬衫",'chengshan')
-            loads("礼服",'waitao')
-            loads("棉服",'mianfu')
-            loads("短外套",'duanwaitao')
-            loads("卫衣",'weiyi')
-            loads("T恤",'txue')
-            loads("风衣",'fengyi')
-            loads("打底裤",'dadiku')
-            loads("皮草",'pichao')
-            loads("羊绒衫",'yangrongsan')
-            loads("牛仔裤",'niuzaiku')
-            loads("休闲裤",'xiuxianku')
+//          loads("礼服",'waitao')
+//          loads("棉服",'mianfu')
+//          loads("短外套",'duanwaitao')
+//          loads("卫衣",'weiyi')
+//          loads("T恤",'txue')
+//          loads("风衣",'fengyi')
+//          loads("打底裤",'dadiku')
+//          loads("皮草",'pichao')
+//          loads("羊绒衫",'yangrongsan')
+//          loads("牛仔裤",'niuzaiku')
+//          loads("休闲裤",'xiuxianku')
               
 			//				function createNewDiv(src, name, discount, price, goodsId) {
 			////				console.log(goodsId);
